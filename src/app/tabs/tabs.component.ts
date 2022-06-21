@@ -29,4 +29,11 @@ export class TabsComponent implements OnInit {
     })
   }
 
+  onSideChosen(charInfo){
+    const positi = this.characters.findIndex((char) => {
+      return char.name === charInfo.name;
+    });
+    this.characters[positi].side = charInfo.side;
+  }
+
 }

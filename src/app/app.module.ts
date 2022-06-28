@@ -10,12 +10,20 @@ import { LogService } from './services/log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes = [
-  { path: '', component: TabsComponent },
+const routes:Routes = [
+  {
+    path: 'characters',
+    component: TabsComponent,
+    children: [
+      { path: '', redirectTo: 'characters/all', pathMatch:'full' },
+      // { path: '', redirectTo: 'all', pathMatch: 'full'},
+      { path: ':side', component: ListComponent },
+    ],
+  },
   { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo:'/'}
+  { path: '**', redirectTo: '/characters'},
 ];
 
 @NgModule({

@@ -30,6 +30,6 @@ export class StarWarsService {
       return char.name === charInfo.name;
     });
     this.characters[positi].side = charInfo.side;
-    this.logService.writeLog('Changed side of: ' + charInfo.name+ 'new side, ' + charInfo.side);
+    this.logService.writeLog('Changed side of: ' + charInfo.name+ ' .New side, ' + charInfo.side);
   }
 }
